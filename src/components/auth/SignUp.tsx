@@ -19,11 +19,13 @@ export default function SignUp() {
   return (
     <form onSubmit={handleSubmit}>
       <input 
+        placeholder="username"
         type="text"
         value={username}
         onChange={({ target }) => setUsername(target.value)}
       />
       <input 
+        placeholder="password"
         type="password"
         value={password}
         onChange={({ target }) => setPassword(target.value)}

@@ -16,11 +16,13 @@ export default function Auth() {
 
   return (
     <div id="auth">
-      Auth component
+      <h2>{
+        isNewUser ? 'Sign up' : 'Login'
+      }</h2>
       {
         isNewUser ? <SignUp /> : <Login />
       }
-      <button id="toggle" onClick={() => toggle()}>{isNewUser ? 'Logging In?' : 'New User?'}</button>
+      <p id="toggle" onClick={() => toggle()}>{isNewUser ? 'Logging In?' : 'New User?'}</p>
     </div>
   )
 }

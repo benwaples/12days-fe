@@ -17,16 +17,18 @@ export default function Login() {
   return (
     <form onSubmit={handleSubmit}>
       <input 
+        placeholder="username"
         type="text"
         value={username}
         onChange={({ target }) => setUsername(target.value)}
       />
       <input 
+        placeholder="password"
         type="password"
         value={password}
         onChange={({ target }) => setPassword(target.value)}
       />
-      <button>Sign Up</button>
+      <button>Login</button>
     </form>
   )
 }
