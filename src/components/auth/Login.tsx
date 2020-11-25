@@ -1,9 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { postLogin } from '../../services/authApi'
 
 export default function Login() {
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  
+  const handleSubmit = (event: { preventDefault: () => void }) => {
+    event.preventDefault()
+
+    postLogin(username, password)
+  }
   return (
-    <div>
-      login
-    </div>
+    <form onSubmit={handleSubmit}>
+      <input 
+        type="text"
+        value={username}
+        onChange={({ target }) => setUsername(target.value)}
+      />
+      <input 
+        type="password"
+        value={password}
+        onChange={({ target }) => setPassword(target.value)}
+      />
+      <button>Sign Up</button>
+    </form>
   )
 }
