@@ -10,6 +10,7 @@ export default function Login() {
   const handleSubmit = async(event: { preventDefault: () => void }) => {
     event.preventDefault()
     const user = await postLogin(username, password)
+    
     if(user.status === 500) return alert('incorrect username/password')
     history.push('/calendar')
   }

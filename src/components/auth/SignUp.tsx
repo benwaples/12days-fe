@@ -1,15 +1,20 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import { postSignUp } from '../../services/authApi'
 
 export default function SignUp() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [userRole, setUserRole] = useState('HSD')
+  const history = useHistory()
   
-  const handleSubmit = (event: { preventDefault: () => void }) => {
+  const handleSubmit = async(event: { preventDefault: () => void }) => {
     event.preventDefault()
 
-    postSignUp(username, password, userRole)
+    const user = await postSignUp(username, password, userRole)
+
+    if(user.status === 500) return alert('incorrect username/password')
+    history.push('/calendar')
   }
   return (
     <form onSubmit={handleSubmit}>
