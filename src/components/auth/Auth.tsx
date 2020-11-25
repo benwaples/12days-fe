@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Login from './Login'
 import SignUp from './SignUp'
+import './auth.scss'
 
 export default function Auth() {
   const [isNewUser, setIsNewUser] = useState(false)
@@ -14,7 +15,7 @@ export default function Auth() {
   }
 
   return (
-    <div>
+    <div id="auth">
       Auth component
       {
         isNewUser ? <SignUp /> : <Login />
