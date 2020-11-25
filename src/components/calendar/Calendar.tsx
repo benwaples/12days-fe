@@ -1,11 +1,9 @@
+import React from 'react'
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from "@fullcalendar/interaction";
-import './sandbox.scss'
 
-import React from 'react'
-
-export const Calendar = () => {
+export default function Calendar() {
   const events = [
     {
       id: 'a',
@@ -13,7 +11,14 @@ export const Calendar = () => {
       start: '2020-11-11',
       url: 'https://i.ibb.co/GQ9xdzy/12.png',
       textColor: 'pink'
-    }
+    },
+    {
+      id: 'b',
+      title: 'my event',
+      start: '2020-11-12',
+      url: 'https://i.ibb.co/GQ9xdzy/12.png',
+      textColor: 'blue'
+    },
   ]
 
   const renderEventImage = (eventInfo: { event: { _def: { title: {} | null | undefined; url: string; }; }; }) => {

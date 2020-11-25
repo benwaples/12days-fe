@@ -1,12 +1,20 @@
 import React from 'react';
 import './App.css';
-import { Calendar } from '../sandbox'
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch
+} from 'react-router-dom'
+import Auth from './auth/Auth';
 
 function App() {
   return (
-    <div className="App">
-      <Calendar />
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Auth} />
+
+      </Switch>
+    </Router>
   );
 }
 
