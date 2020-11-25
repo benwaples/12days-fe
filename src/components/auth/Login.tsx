@@ -1,14 +1,17 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import { postLogin } from '../../services/authApi'
 
 export default function Login() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const history = useHistory()
   
   const handleSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault()
-
     postLogin(username, password)
+    history.push('/calendar')
+
   }
   return (
     <form onSubmit={handleSubmit}>
