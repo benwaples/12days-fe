@@ -7,11 +7,11 @@ export default function Login() {
   const [password, setPassword] = useState('')
   const history = useHistory()
   
-  const handleSubmit = (event: { preventDefault: () => void }) => {
+  const handleSubmit = async(event: { preventDefault: () => void }) => {
     event.preventDefault()
-    postLogin(username, password)
+    const user = await postLogin(username, password)
+    if(user.status === 500) return alert('incorrect username/password')
     history.push('/calendar')
-
   }
   return (
     <form onSubmit={handleSubmit}>
