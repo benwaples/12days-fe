@@ -1,3 +1,39 @@
 #auth {
-  background-color: pink;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: solid black 1px;
+  height: auto;
+  max-width: 40%;
+  min-width: 300px;
+  margin: auto;
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+
+    input {
+      padding: 8px;
+      margin: 12px 0 12px 0;
+      width: 100%;
+    }
+    select {
+      padding: 8px;
+      margin: 12px 0 12px 0;
+      width: 100%;
+    }
+
+    button {
+      align-self: flex-end;
+    }
+  }
+
+  #toggle {
+    align-self: flex-end;
+    margin: 10px 30px 10px 0;
+  }
 }

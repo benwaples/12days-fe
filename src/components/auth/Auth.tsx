@@ -20,7 +20,7 @@ export default function Auth() {
       {
         isNewUser ? <SignUp /> : <Login />
       }
-      <button onClick={() => toggle()}>{isNewUser ? 'Logging In?' : 'New User?'}</button>
+      <button id="toggle" onClick={() => toggle()}>{isNewUser ? 'Logging In?' : 'New User?'}</button>
     </div>
   )
 }
