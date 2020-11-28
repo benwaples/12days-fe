@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { postSignUp } from '../../services/authApi';
 
@@ -7,6 +8,7 @@ export default function SignUp(): JSX.Element {
   const [password, setPassword] = useState('');
   const [userRole, setUserRole] = useState('HSD');
   const history = useHistory();
+  const dispatch = useDispatch();
 
   // eslint-disable-next-line consistent-return
   async function handleSubmit(event: { preventDefault: () => void }) {
@@ -17,8 +19,12 @@ export default function SignUp(): JSX.Element {
     // change the alert to custom UI element that notifies user
     // eslint-disable-next-line no-alert
     if (user.status === 500) return alert('incorrect username/password');
+
+    dispatch(setUsername(user.username));
+    dispatch(setUsername(user.userRole));
     history.push('/calendar');
   }
+
   return (
     <form onSubmit={handleSubmit}>
       <input
