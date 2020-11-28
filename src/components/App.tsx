@@ -1,10 +1,6 @@
 import React from 'react';
 import './App.css';
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch
-} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Auth from './auth/Auth';
 import CalendarPage from './calendar/CalendarPage';
 

@@ -1,38 +1,38 @@
-import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
-import { postSignUp } from '../../services/authApi'
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { postSignUp } from '../../services/authApi';
 
 export default function SignUp() {
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
-  const [userRole, setUserRole] = useState('HSD')
-  const history = useHistory()
-  
-  const handleSubmit = async(event: { preventDefault: () => void }) => {
-    event.preventDefault()
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [userRole, setUserRole] = useState('HSD');
+  const history = useHistory();
 
-    const user = await postSignUp(username, password, userRole)
+  const handleSubmit = async (event: { preventDefault: () => void }) => {
+    event.preventDefault();
 
-    if(user.status === 500) return alert('incorrect username/password')
-    history.push('/calendar')
-  }
+    const user = await postSignUp(username, password, userRole);
+
+    if (user.status === 500) return alert('incorrect username/password');
+    history.push('/calendar');
+  };
   return (
     <form onSubmit={handleSubmit}>
-      <input 
+      <input
         placeholder="username"
         type="text"
         value={username}
         onChange={({ target }) => setUsername(target.value)}
       />
-      <input 
+      <input
         placeholder="password"
         type="password"
         value={password}
         onChange={({ target }) => setPassword(target.value)}
       />
       Department
-      <select 
-        value={userRole} 
+      <select
+        value={userRole}
         onChange={({ target }) => setUserRole(target.value)}
       >
         <option value="SOD">Santa Operations</option>
@@ -41,5 +41,5 @@ export default function SignUp() {
       </select>
       <button>Sign Up</button>
     </form>
-  )
+  );
 }
