@@ -3,7 +3,7 @@ import Login from './Login';
 import SignUp from './SignUp';
 import './auth.scss';
 
-export default function Auth() {
+export default function Auth(): JSX.Element {
   const [isNewUser, setIsNewUser] = useState(false);
 
   const toggle = () => {
