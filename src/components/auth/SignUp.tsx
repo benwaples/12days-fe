@@ -2,20 +2,23 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { postSignUp } from '../../services/authApi';
 
-export default function SignUp() {
+export default function SignUp(): JSX.Element {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [userRole, setUserRole] = useState('HSD');
   const history = useHistory();
 
-  const handleSubmit = async (event: { preventDefault: () => void }) => {
+  // eslint-disable-next-line consistent-return
+  async function handleSubmit(event: { preventDefault: () => void }) {
     event.preventDefault();
 
     const user = await postSignUp(username, password, userRole);
 
+    // change the alert to custom UI element that notifies user
+    // eslint-disable-next-line no-alert
     if (user.status === 500) return alert('incorrect username/password');
     history.push('/calendar');
-  };
+  }
   return (
     <form onSubmit={handleSubmit}>
       <input
@@ -39,7 +42,7 @@ export default function SignUp() {
         <option value="TOD">Tech</option>
         <option value="HSD">Health and Safety </option>
       </select>
-      <button>Sign Up</button>
+      <button type="submit">Sign Up</button>
     </form>
   );
 }
