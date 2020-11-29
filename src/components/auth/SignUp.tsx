@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import {
+  setUsernameAction,
+  setUserRoleAction,
+} from '../../actions/authActions';
 import { postSignUp } from '../../services/authApi';
 
 export default function SignUp(): JSX.Element {
@@ -14,14 +18,18 @@ export default function SignUp(): JSX.Element {
   async function handleSubmit(event: { preventDefault: () => void }) {
     event.preventDefault();
 
+    // eslint-disable-next-line no-alert
+    if (!username || !password || !userRole)
+      return alert('fill out all fields');
+
     const user = await postSignUp(username, password, userRole);
 
     // change the alert to custom UI element that notifies user
     // eslint-disable-next-line no-alert
     if (user.status === 500) return alert('incorrect username/password');
 
-    dispatch(setUsername(user.username));
-    dispatch(setUsername(user.userRole));
+    dispatch(setUsernameAction(user.username));
+    dispatch(setUserRoleAction(user.userRole));
     history.push('/calendar');
   }
 
