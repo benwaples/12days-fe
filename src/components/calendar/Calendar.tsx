@@ -2,6 +2,7 @@ import React from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
+import { renderEventImage } from '../../utils/calendarUtils';
 
 export default function Calendar() {
   const events = [
@@ -20,22 +21,6 @@ export default function Calendar() {
       textColor: 'blue',
     },
   ];
-
-  const renderEventImage = (eventInfo: {
-    event: { _def: { title: {} | null | undefined; url: string } };
-  }) => {
-    console.log(eventInfo, 'event info');
-    return (
-      <div id="event">
-        <img
-          id="event-image"
-          src={eventInfo.event._def.url as string}
-          alt={eventInfo.event._def.title as string}
-        />
-        <h2>{eventInfo.event._def.title}</h2>
-      </div>
-    );
-  };
 
   return (
     <div>
