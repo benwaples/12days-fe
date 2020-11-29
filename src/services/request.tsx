@@ -1,11 +1,11 @@
-import { RequestBodyType } from '../types';
+import { EventType, RequestBodyType } from '../types';
 
 const API = 'http://localhost:7890';
 
 const request = async (
   path: string,
   method: string,
-  body: RequestBodyType | string
+  body: RequestBodyType | string | EventType
 ) => {
   const res = await fetch(`${API}${path}`, {
     method,
@@ -24,8 +24,13 @@ const request = async (
   return json;
 };
 
-export const post = (path: string, body: RequestBodyType) =>
-  request(path, 'POST', body);
+export const post = (
+  path: string,
+  body: RequestBodyType | EventType | string
+) => request(path, 'POST', body);
+
 export const get = (path: string) => request(path, 'GET', '');
+
 export const put = (path: string, body: string) => request(path, 'PUT', body);
+
 export const del = (path: string) => request(path, 'DELETE', '');

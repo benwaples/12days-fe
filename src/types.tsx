@@ -15,7 +15,7 @@ export type AuthActionType = {
   payload: string;
 };
 
-export type DetailedEventType = {
+export type EventType = {
   name: string | undefined;
   description: string | undefined;
   image: string | undefined;
