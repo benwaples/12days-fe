@@ -14,14 +14,16 @@
     }
     
   }
-  
-  // img {
-  //   left: 50%;
-  //   margin-left: -24px; 
-  // }
+
   h2 {
     width: 100%;
   }
+}
+
+#calendarBox {
+  width: 60%;
+  margin: auto;
+  // display grid the two components next to each other, do it
 }
 
 #event {
