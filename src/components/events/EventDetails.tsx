@@ -1,3 +1,4 @@
+import { resolve } from 'path';
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { getEventById } from '../../services/eventApi';
@@ -12,8 +13,11 @@ export default function EventDetails() {
   );
 
   useEffect(() => {
-    getEventById(`/api/v1/events/`);
-    // then update state
+    setLoading(true);
+    getEventById(`/api/v1/events/`)
+      .then((res) => setEvent(res))
+      .catch((err) => setError(err))
+      .finally(() => setLoading(false));
   }, [id]);
 
   return (
