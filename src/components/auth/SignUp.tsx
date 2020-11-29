@@ -18,8 +18,9 @@ export default function SignUp(): JSX.Element {
   async function handleSubmit(event: { preventDefault: () => void }) {
     event.preventDefault();
 
-    // eslint-disable-next-line no-alert
+    // export logic into function
     if (!username || !password || !userRole)
+      // eslint-disable-next-line no-alert
       return alert('fill out all fields');
 
     const user = await postSignUp(username, password, userRole);
