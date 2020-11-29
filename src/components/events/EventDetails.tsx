@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { getEventById } from '../../services/eventApi';
+import { RootStateType } from '../../types';
 
 export default function EventDetails() {
   const [event, setEvent] = useState({});
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const id = useSelector(
+    (state: RootStateType) => state.calendar.detailedEventId
+  );
 
   useEffect(() => {
-    // fetch event
-    // set event
-    // update loading and set error if error while fetching
-    // this may also include comments
-  });
+    getEventById(`/api/v1/events/`);
+    // then update state
+  }, [id]);
 
   return (
     <div id="detailedEvent">

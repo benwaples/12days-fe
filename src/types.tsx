@@ -25,3 +25,8 @@ export type EventType = {
 export type eventReducerType = {
   detailedEventId: string | null;
 };
+
+export type RootStateType = {
+  auth: AuthReducerState;
+  calendar: eventReducerType;
+};
