@@ -1,7 +1,11 @@
-import { EventType } from '@testing-library/react';
 import { get, post } from './request';
 
-export const addEvent = (event: EventType) => post('/api/v1/events', event);
+export const addEvent = (
+  name: string,
+  description: string,
+  image: string,
+  date: string
+) => post('/api/v1/events', { name, description, image, date });
 
 export const getEventById = (path: string) => get(path);
 

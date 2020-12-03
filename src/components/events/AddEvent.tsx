@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { addEvent } from '../../services/eventApi';
 
 export default function AddEvent(): JSX.Element {
   const [name, setName] = useState('');
@@ -6,10 +7,10 @@ export default function AddEvent(): JSX.Element {
   const [image, setImage] = useState('');
   const [date, setDate] = useState('');
 
-  const handleSubmit = (event: { preventDefault: () => void }) => {
+  const handleSubmit = async (event: { preventDefault: () => void }) => {
     event.preventDefault();
 
-    // make API call here
+    await addEvent(name, description, image, date);
   };
 
   return (
