@@ -16,10 +16,18 @@ export type AuthActionType = {
 };
 
 export type EventType = {
+  id: string | undefined;
   name: string | undefined;
   description: string | undefined;
   image: string | undefined;
   date: string | undefined;
+};
+
+export type MungedEvent = {
+  id: string | undefined;
+  title: string | undefined;
+  start: string | undefined;
+  url: string | undefined;
 };
 
 export type eventReducerType = {
