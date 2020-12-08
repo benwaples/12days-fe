@@ -77,7 +77,6 @@ export default function Calendar() {
 
   if (loading) return <h1>Loading...</h1>;
   if (error) return <h1>Erorr when fetching events</h1>;
-  console.log(events);
 
   return (
     <div>

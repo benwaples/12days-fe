@@ -18,20 +18,24 @@ export default function Header() {
     <header>
       <div />
       <h1>12 Days of Christmas</h1>
-      <div className="welcome">
-        <h2>
-          Welcome,{' '}
-          <strong>
-            <span>{username}</span>
-          </strong>
-        </h2>
-        <h3>
-          from the{' '}
-          <strong>
-            <span>{userRole}</span>
-          </strong>
-        </h3>
-      </div>
+      {username ? (
+        <div className="welcome">
+          <h2>
+            Welcome,{' '}
+            <strong>
+              <span>{username}</span>
+            </strong>
+          </h2>
+          <h3>
+            from the{' '}
+            <strong>
+              <span>{userRole}</span>
+            </strong>
+          </h3>
+        </div>
+      ) : (
+        ''
+      )}
     </header>
   );
 }
