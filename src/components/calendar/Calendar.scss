@@ -22,6 +22,7 @@
 #calendarBox {
   padding: 9px;
   margin: 0;
+  justify-self: center;
   .fc-toolbar-title {
     background-color: var(--color1);
     color: var(--color2);
@@ -49,7 +50,7 @@
 
 #dashboard {
   display: grid;
-  grid-template-columns: 1fr 10fr 1fr;
+  grid-template-columns: 2fr 10fr 2fr;
 }
 
 #title {
@@ -61,7 +62,6 @@
 #calendarBox {
   background: #ACBDC3;
   width: 80%;
-  margin: auto;
   // display grid the two components next to each other, do it
 }
 

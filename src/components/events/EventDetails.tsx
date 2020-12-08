@@ -1,4 +1,3 @@
-import { resolve } from 'path';
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { getEventById } from '../../services/eventApi';
@@ -26,6 +25,8 @@ export default function EventDetails() {
   return (
     <div id="detailedEvent">
       <h3>{event.name}</h3>
+      <h3>Date: {event.date}</h3>
+      <p>{event.description}</p>
     </div>
   );
 }
