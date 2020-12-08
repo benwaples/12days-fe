@@ -14,18 +14,76 @@
     }
     
   }
-
   h2 {
     width: 100%;
   }
 }
 
 #calendarBox {
-  width: 60%;
+  padding: 9px;
+  margin: 0;
+  .fc-toolbar-title {
+    background-color: var(--color1);
+    color: var(--color2);
+    padding: 8px;
+    border-radius: 15px 15px 0 15px;;
+  }
+  
+  button.fc-today-button {
+    background-color: var(--color1);
+    color: var(--color2);
+    padding: 8px;
+  }
+  
+  button.fc-prev-button {
+    background-color: var(--color1);
+    color: var(--color2);
+    padding: 8px;
+  }
+  button.fc-next-button {
+    background-color: var(--color1);
+    color: var(--color2);
+    padding: 8px;
+  }
+}
+
+#dashboard {
+  display: grid;
+  grid-template-columns: 1fr 10fr 1fr;
+}
+
+#title {
+  display: block;
+  text-align: center;
+}
+
+
+#calendarBox {
+  background: #ACBDC3;
+  width: 80%;
   margin: auto;
   // display grid the two components next to each other, do it
 }
 
 #event {
-  cursor: default;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #ACBDC3;
+  text-align: center;
+  img {
+    max-width: 80px;
+  }
+  button {
+    margin-top: 8px;
+    cursor: pointer;
+    border: none;
+    background-color: var(--color4);
+    color: var(--color2);
+    border-radius: 15px;
+    font-size: smaller;
+    max-width: 75%;
+    min-width: fit-content;
+  }
 }

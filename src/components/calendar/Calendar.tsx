@@ -9,6 +9,8 @@ import { useDispatch } from 'react-redux';
 import { getEvents, mungeEvents } from '../../services/eventApi';
 import { MungedEvent } from '../../types';
 import { setDetailedEventId } from '../../actions/eventActions';
+import './Calendar.scss';
+// import Snow from './Snow';
 
 export default function Calendar() {
   const [events, setEvents] = useState<MungedEvent[]>([
@@ -49,6 +51,7 @@ export default function Calendar() {
     const details = eventInfo?.event._def;
     return (
       <div id="event" onClick={(e) => e.preventDefault()}>
+        <h2>{details.title}</h2>
         <img
           id="event-image"
           src={details.url}
@@ -58,7 +61,7 @@ export default function Calendar() {
           type="button"
           onClick={() => dispatch(setDetailedEventId(details.publicId))}
         >
-          <h2>{details.title}</h2>
+          See More
         </button>
       </div>
     );
@@ -83,6 +86,8 @@ export default function Calendar() {
 
   return (
     <div>
+      <h1 id="title">12 Days Event Calendar</h1>
+      {/* <Snow /> */}
       <FullCalendar
         plugins={[dayGridPlugin, interactionPlugin]}
         initialView="dayGridMonth"
