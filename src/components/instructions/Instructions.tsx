@@ -2,5 +2,5 @@ import React from 'react';
 import './Instructions.scss';
 
 export default function Instructions() {
-  return <div>hello</div>;
+  return <h4>Click an Event to learn more</h4>;
 }
