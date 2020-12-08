@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { addEvent } from '../../services/eventApi';
+import './AddEvent.scss';
 
 export default function AddEvent(): JSX.Element {
   const [name, setName] = useState('');

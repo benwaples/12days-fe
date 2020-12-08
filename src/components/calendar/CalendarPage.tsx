@@ -23,6 +23,7 @@ export default function CalendarPage(): JSX.Element {
         {/* <Snow /> */}
         {/* if user is emily display this otherwise display nothing */}
         {userRole === 'emily' && <AddEvent />}
+        <AddEvent />
       </div>
     </>
   );
