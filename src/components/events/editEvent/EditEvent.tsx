@@ -55,6 +55,8 @@ export default function AddEvent(): JSX.Element {
     event.preventDefault();
 
     await patchEvent(editEventId, { id: '', name, description, image, date });
+    dispatch(setEditEventId(null));
+    dispatch(setDetailedEventId(null));
     dispatch(setUpdateCalendar(true));
   }
 

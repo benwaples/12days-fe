@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { setUpdateCalendar } from '../../actions/eventActions';
 import { addEvent } from '../../services/eventApi';
 import './AddEvent.scss';
 
@@ -8,10 +10,14 @@ export default function AddEvent(): JSX.Element {
   const [image, setImage] = useState('');
   const [date, setDate] = useState('');
 
+  const dispatch = useDispatch();
+
   const handleSubmit = async (event: { preventDefault: () => void }) => {
     event.preventDefault();
 
     await addEvent(name, description, image, date);
+
+    dispatch(setUpdateCalendar(true));
   };
 
   return (
