@@ -13,7 +13,6 @@ import {
   setUpdateCalendar,
 } from '../../actions/eventActions';
 import './Calendar.scss';
-// import Snow from './Snow';
 
 export default function Calendar() {
   const [events, setEvents] = useState<MungedEvent[]>([
@@ -83,7 +82,6 @@ export default function Calendar() {
   return (
     <div>
       <h1 id="title">Event Calendar</h1>
-      {/* <Snow /> */}
       <FullCalendar
         plugins={[dayGridPlugin, interactionPlugin]}
         initialView="dayGridMonth"

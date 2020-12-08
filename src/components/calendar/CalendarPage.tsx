@@ -4,6 +4,7 @@ import { RootStateType } from '../../types';
 import AddEvent from '../events/AddEvent';
 import EditEvent from '../events/editEvent/EditEvent';
 import EventDetails from '../events/EventDetails';
+import Instructions from '../instructions/Instructions';
 import Calendar from './Calendar';
 import './Calendar.scss';
 // import Snow from './Snow';
@@ -21,7 +22,7 @@ export default function CalendarPage(): JSX.Element {
     <>
       <div id="dashboard">
         <div id="left">
-          {detailsId ? <EventDetails /> : 'make an instrutions thing'}
+          {detailsId ? <EventDetails /> : <Instructions />}
           {editId && <EditEvent />}
         </div>
         <div id="calendarBox">
@@ -30,7 +31,6 @@ export default function CalendarPage(): JSX.Element {
         {/* <Snow /> */}
         {/* if user is emily display this otherwise display nothing */}
         {userRole === 'emily' && <AddEvent />}
-        <AddEvent />
       </div>
     </>
   );
