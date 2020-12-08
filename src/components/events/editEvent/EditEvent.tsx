@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootStateType } from '../../../types';
 import {
   deleteEvent,
   getEventById,
   patchEvent,
 } from '../../../services/eventApi';
+import { setEditEventId } from '../../../actions/eventActions';
 
 export default function AddEvent(): JSX.Element {
   const [name, setName] = useState('');
@@ -17,6 +18,8 @@ export default function AddEvent(): JSX.Element {
   const editEventId = useSelector(
     (state: RootStateType) => state.calendar.editEventId
   );
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setLoading(true);
@@ -47,6 +50,9 @@ export default function AddEvent(): JSX.Element {
 
   return (
     <div id="add-event">
+      <button onClick={() => dispatch(setEditEventId(null))} type="button">
+        X
+      </button>
       <form onSubmit={handleEdit}>
         <input
           placeholder="Name"
