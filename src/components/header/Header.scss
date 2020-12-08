@@ -1,3 +1,14 @@
 header {
-  background-color: pink;
+  text-align: center;
+  height: 150px;
+  background-color: var(--color3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2%;
+
+  h1{
+    font-size: 70px;
+    margin: 0;
+  }
 }
