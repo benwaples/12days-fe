@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { getEventById } from '../../services/eventApi';
 import { RootStateType } from '../../types';
 import eventDefault from './eventPlaceholder';
+import './EventDetails.scss';
 
 export default function EventDetails() {
   const [event, setEvent] = useState(eventDefault);
