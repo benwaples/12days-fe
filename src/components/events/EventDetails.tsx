@@ -24,7 +24,7 @@ export default function EventDetails() {
   if (error) return <h1>Error while fetching event</h1>;
   return (
     <div id="detailedEvent">
-      <h3>{event.name}</h3>
+      <h1>{event.name}</h1>
       <h3>Date: {event.date}</h3>
       <p>{event.description}</p>
     </div>
