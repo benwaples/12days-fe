@@ -7,6 +7,7 @@ import {
   patchEvent,
 } from '../../../services/eventApi';
 import { setEditEventId } from '../../../actions/eventActions';
+import './EditEvent.scss';
 
 export default function AddEvent(): JSX.Element {
   const [name, setName] = useState('');
@@ -49,11 +50,15 @@ export default function AddEvent(): JSX.Element {
   if (error) return <h1>Error getting event</h1>;
 
   return (
-    <div id="add-event">
-      <button onClick={() => dispatch(setEditEventId(null))} type="button">
-        X
-      </button>
+    <div id="add-event" className="edit">
       <form onSubmit={handleEdit}>
+        <button
+          id="backout"
+          onClick={() => dispatch(setEditEventId(null))}
+          type="button"
+        >
+          X
+        </button>
         <input
           placeholder="Name"
           type="text"

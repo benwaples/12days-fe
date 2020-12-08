@@ -58,6 +58,16 @@
   text-align: center;
 }
 
+#left {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: sticky;
+  top: 10px;
+  height: fit-content;
+}
+
 
 #calendarBox {
   background: #ACBDC3;

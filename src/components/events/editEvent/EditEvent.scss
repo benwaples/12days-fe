@@ -1,0 +1,17 @@
+.edit {
+  margin-top: 10px;
+
+  #backout {
+    border: none;
+    background-color: var(--color4);
+    color: var(--color2);
+    align-self: flex-end;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+
+  button {
+    margin-bottom: 10px;
+  }
+}
