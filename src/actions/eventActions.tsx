@@ -7,7 +7,15 @@ export const setDetailedEventId = (id: string | null): AuthActionType => ({
 });
 
 export const SET_EDIT_EVENT_ID = 'SET_EDIT_EVENT_ID';
-export const setEditEventId = (id: string | null): AuthActionType => ({
+export const setEditEventId = (
+  id: string | null | boolean
+): AuthActionType => ({
   type: SET_EDIT_EVENT_ID,
   payload: id,
+});
+
+export const UPDATE_CALENDAR = 'UPDATE_CALENDAR';
+export const setUpdateCalendar = (boolean: boolean): AuthActionType => ({
+  type: UPDATE_CALENDAR,
+  payload: boolean,
 });

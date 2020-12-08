@@ -26,7 +26,7 @@ export default function EventDetails() {
       .finally(() => setLoading(false));
   }, [id]);
 
-  function handleEdit(eventId: string | null) {
+  function handleEdit(eventId: string | null | boolean) {
     dispatch(setEditEventId(eventId));
   }
 

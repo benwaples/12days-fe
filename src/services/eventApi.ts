@@ -12,9 +12,10 @@ export const getEventById = (path: string | null) => get(path);
 
 export const getEvents = () => get('/api/v1/events');
 
-export const deleteEvent = (id: string | null) => del(`/api/v1/events/${id}`);
+export const deleteEvent = (id: string | null | boolean) =>
+  del(`/api/v1/events/${id}`);
 
-export const patchEvent = (id: string | null, newEvent: EventType) =>
+export const patchEvent = (id: string | null | boolean, newEvent: EventType) =>
   patch(`/api/v1/events/${id}`, newEvent);
 
 export const mungeEvents = (events: EventType[]) => {

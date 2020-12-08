@@ -10,6 +10,7 @@ import {
 import {
   setDetailedEventId,
   setEditEventId,
+  setUpdateCalendar,
 } from '../../../actions/eventActions';
 import './EditEvent.scss';
 
@@ -42,10 +43,11 @@ export default function AddEvent(): JSX.Element {
       .finally(() => setLoading(false));
   }, [editEventId]);
 
-  async function handleDelete(deleteId: string | null) {
+  async function handleDelete(deleteId: string | null | boolean) {
     await deleteEvent(deleteId);
     dispatch(setEditEventId(null));
     dispatch(setDetailedEventId(null));
+    dispatch(setUpdateCalendar(true));
     history.push('/calendar');
   }
 
@@ -53,6 +55,7 @@ export default function AddEvent(): JSX.Element {
     event.preventDefault();
 
     await patchEvent(editEventId, { id: '', name, description, image, date });
+    dispatch(setUpdateCalendar(true));
   }
 
   if (loading) return <h1>Loading...</h1>;

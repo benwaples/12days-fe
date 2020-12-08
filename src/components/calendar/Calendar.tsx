@@ -5,10 +5,13 @@ import React, { useEffect, useState } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getEvents, mungeEvents } from '../../services/eventApi';
-import { MungedEvent } from '../../types';
-import { setDetailedEventId } from '../../actions/eventActions';
+import { MungedEvent, RootStateType } from '../../types';
+import {
+  setDetailedEventId,
+  setUpdateCalendar,
+} from '../../actions/eventActions';
 import './Calendar.scss';
 // import Snow from './Snow';
 
@@ -19,6 +22,10 @@ export default function Calendar() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
+
+  const updateCalendar = useSelector(
+    (state: RootStateType) => state.calendar.updateCalendar
+  );
 
   const renderEventImage = (eventInfo: {
     event: {
@@ -59,13 +66,15 @@ export default function Calendar() {
         return setEvents(mungedRes);
       })
       .catch((err) => setError(err))
-      .finally(() => setLoading(false));
-  }, []);
+      .finally(() => {
+        setLoading(false);
+        return dispatch(setUpdateCalendar(false));
+      });
+  }, [updateCalendar]);
 
   if (loading) return <h1>Loading...</h1>;
   if (error) return <h1>Erorr when fetching events</h1>;
   console.log(events);
-  console.log(testEvents);
 
   return (
     <div>
