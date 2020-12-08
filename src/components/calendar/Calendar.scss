@@ -83,11 +83,27 @@
   align-items: center;
   background: #ACBDC3;
   text-align: center;
-  word-wrap: normal;
   
   img {
     max-width: 80px;
   }
+
+  .hidden-title {
+    position: absolute;
+    visibility: hidden;
+    -webkit-transition: all 300ms ease-out;
+    -moz-transition: all 300ms ease-out;
+    -o-transition: all 300ms ease-out;
+    -ms-transition: all 300ms ease-out;
+    -webkit-transform: translateY(6px);
+  }
+
+  .container:hover .hidden-title{
+    visibility: visible;
+    background-color: #73ba9b;
+
+  }
+  
   button {
     margin-top: 8px;
     cursor: pointer;

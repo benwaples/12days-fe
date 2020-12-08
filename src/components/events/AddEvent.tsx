@@ -16,6 +16,10 @@ export default function AddEvent(): JSX.Element {
     event.preventDefault();
 
     await addEvent(name, description, image, date);
+    setName('');
+    setDescription('');
+    setImage('');
+    setDate('');
 
     dispatch(setUpdateCalendar(true));
   };

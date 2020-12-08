@@ -41,12 +41,16 @@ export default function Calendar() {
     const details = eventInfo?.event._def;
     return (
       <div id="event" onClick={(e) => e.preventDefault()}>
-        <h2>{details.title}</h2>
-        <img
-          id="event-image"
-          src={details.url}
-          alt={details.title as string | undefined}
-        />
+        <div className="container">
+          <div className="hidden-title">
+            <h2>{details.title}</h2>
+          </div>
+          <img
+            id="event-image"
+            src={details.url}
+            alt={details.title as string | undefined}
+          />
+        </div>
         <button
           type="button"
           onClick={() => dispatch(setDetailedEventId(details.publicId))}
