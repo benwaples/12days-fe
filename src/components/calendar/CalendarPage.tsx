@@ -16,7 +16,8 @@ export default function CalendarPage(): JSX.Element {
   const editId = useSelector(
     (state: RootStateType) => state.calendar.editEventId
   );
-  const userRole = useSelector((state: RootStateType) => state.auth.username);
+  const username = useSelector((state: RootStateType) => state.auth.username);
+  console.log(username, process.env.SECRET_USERNAME as string);
 
   return (
     <>
@@ -30,7 +31,7 @@ export default function CalendarPage(): JSX.Element {
         </div>
         {/* <Snow /> */}
         {/* if user is emily display this otherwise display nothing */}
-        {userRole === 'emily' && <AddEvent />}
+        {username === 'emily' && <AddEvent />}
       </div>
     </>
   );

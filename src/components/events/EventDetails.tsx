@@ -14,7 +14,7 @@ export default function EventDetails() {
   const id = useSelector(
     (state: RootStateType) => state.calendar.detailedEventId
   );
-  // const username = useSelector((state: RootStateType) => state.auth.username);
+  const username = useSelector((state: RootStateType) => state.auth.username);
 
   const dispatch = useDispatch();
 
@@ -44,9 +44,11 @@ export default function EventDetails() {
       <h1>{event.name}</h1>
       <h3>Date: {event.date}</h3>
       <p>{event.description}</p>
-      <button onClick={() => handleEdit(id)} type="button">
-        Edit Event
-      </button>
+      {username === 'emily' && (
+        <button onClick={() => handleEdit(id)} type="button">
+          Edit Event
+        </button>
+      )}
     </div>
   );
 }
