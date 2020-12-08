@@ -1,6 +1,6 @@
 import { EventType, RequestBodyType } from '../types';
 
-const API = 'https://twelvedayschristmas.herokuapp.com/';
+const API = 'https://twelvedayschristmas.herokuapp.com';
 
 const request = async (
   path: string | null,
