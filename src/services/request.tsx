@@ -3,7 +3,7 @@ import { EventType, RequestBodyType } from '../types';
 const API = 'http://localhost:7890';
 
 const request = async (
-  path: string,
+  path: string | null,
   method: string,
   body: RequestBodyType | string | EventType
 ) => {
@@ -29,8 +29,9 @@ export const post = (
   body: RequestBodyType | EventType | string
 ) => request(path, 'POST', body);
 
-export const get = (path: string) => request(path, 'GET', '');
+export const get = (path: string | null) => request(path, 'GET', '');
 
-export const put = (path: string, body: string) => request(path, 'PUT', body);
+export const patch = (path: string, body: EventType) =>
+  request(path, 'PATCH', body);
 
 export const del = (path: string) => request(path, 'DELETE', '');

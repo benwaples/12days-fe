@@ -5,14 +5,14 @@ export type RequestBodyType = {
 };
 
 export type AuthReducerState = {
-  username: string;
-  userRole: string;
-  avatarUrl: string;
+  username: string | null;
+  userRole: string | null;
+  avatarUrl: string | null;
 };
 
 export type AuthActionType = {
   type: string;
-  payload: string;
+  payload: string | null;
 };
 
 export type EventType = {
@@ -32,6 +32,7 @@ export type MungedEvent = {
 
 export type eventReducerType = {
   detailedEventId: string | null;
+  editEventId: string | null;
 };
 
 export type RootStateType = {

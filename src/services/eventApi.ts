@@ -1,5 +1,5 @@
 import { EventType } from '../types';
-import { get, post } from './request';
+import { del, get, patch, post } from './request';
 
 export const addEvent = (
   name: string,
@@ -8,9 +8,14 @@ export const addEvent = (
   date: string
 ) => post('/api/v1/events', { id: 'random', name, description, image, date });
 
-export const getEventById = (path: string) => get(path);
+export const getEventById = (path: string | null) => get(path);
 
 export const getEvents = () => get('/api/v1/events');
+
+export const deleteEvent = (id: string | null) => del(`/api/v1/events/${id}`);
+
+export const patchEvent = (id: string | null, newEvent: EventType) =>
+  patch(`/api/v1/events/${id}`, newEvent);
 
 export const mungeEvents = (events: EventType[]) => {
   return events.map((event: EventType) => ({
