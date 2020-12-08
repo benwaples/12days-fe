@@ -1,3 +1,4 @@
+import { useHistory } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootStateType } from '../../../types';
@@ -6,7 +7,10 @@ import {
   getEventById,
   patchEvent,
 } from '../../../services/eventApi';
-import { setEditEventId } from '../../../actions/eventActions';
+import {
+  setDetailedEventId,
+  setEditEventId,
+} from '../../../actions/eventActions';
 import './EditEvent.scss';
 
 export default function AddEvent(): JSX.Element {
@@ -19,6 +23,8 @@ export default function AddEvent(): JSX.Element {
   const editEventId = useSelector(
     (state: RootStateType) => state.calendar.editEventId
   );
+
+  const history = useHistory();
 
   const dispatch = useDispatch();
 
@@ -38,6 +44,9 @@ export default function AddEvent(): JSX.Element {
 
   async function handleDelete(deleteId: string | null) {
     await deleteEvent(deleteId);
+    dispatch(setEditEventId(null));
+    dispatch(setDetailedEventId(null));
+    history.push('/calendar');
   }
 
   async function handleEdit(event: { preventDefault: () => void }) {

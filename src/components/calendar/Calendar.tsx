@@ -20,23 +20,6 @@ export default function Calendar() {
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
 
-  const testEvents = [
-    {
-      id: 'a',
-      title: 'my event',
-      start: '2020-11-11',
-      url: 'https://i.ibb.co/GQ9xdzy/12.png',
-      // textColor: 'pink',
-    },
-    {
-      id: 'b',
-      title: 'my event',
-      start: '2020-11-12',
-      url: 'https://i.ibb.co/GQ9xdzy/12.png',
-      // textColor: 'blue',
-    },
-  ];
-
   const renderEventImage = (eventInfo: {
     event: {
       _def: {
