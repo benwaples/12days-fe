@@ -4,7 +4,7 @@ import { getEventById } from '../../services/eventApi';
 import { RootStateType } from '../../types';
 import eventDefault from './eventPlaceholder';
 import './EventDetails.scss';
-import { setEditEventId } from '../../actions/eventActions';
+import { setDetailedEventId, setEditEventId } from '../../actions/eventActions';
 
 export default function EventDetails() {
   const [event, setEvent] = useState(eventDefault);
@@ -34,6 +34,13 @@ export default function EventDetails() {
   if (error) return <h1>Error while fetching event</h1>;
   return (
     <div id="detailedEvent">
+      <button
+        id="backout"
+        onClick={() => dispatch(setDetailedEventId(null))}
+        type="button"
+      >
+        X
+      </button>
       <h1>{event.name}</h1>
       <h3>Date: {event.date}</h3>
       <p>{event.description}</p>

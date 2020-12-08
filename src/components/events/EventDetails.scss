@@ -14,4 +14,13 @@
   p {
     font-family: sans-serif;
   }
+  #backout {
+    border: none;
+    background-color: var(--color4);
+    color: var(--color2);
+    align-self: flex-end;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
 }
