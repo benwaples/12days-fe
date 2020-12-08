@@ -2,13 +2,18 @@ header {
   text-align: center;
   height: 150px;
   background-color: var(--color3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
   margin-bottom: 2%;
 
   h1{
     font-size: 70px;
     margin: 0;
+  }
+
+  .welcome {
+    span {
+      color: var(--color5)
+    }
   }
 }
