@@ -86,7 +86,7 @@ export default function Calendar() {
 
   return (
     <div>
-      <h1 id="title">12 Days Event Calendar</h1>
+      <h1 id="title">Event Calendar</h1>
       {/* <Snow /> */}
       <FullCalendar
         plugins={[dayGridPlugin, interactionPlugin]}

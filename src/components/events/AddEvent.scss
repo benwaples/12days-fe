@@ -1,3 +1,37 @@
 #add-event {
-  background-color: pink;
+  position: sticky;
+  top: 0;
+  padding: 9px;
+  background-color: var(--color5);
+  height: fit-content;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+
+    input {
+      margin: 10px;
+      margin-left: 0;
+      padding: 5px;
+      border-radius: 0 10px 10px 10px;
+      border: none;
+    }
+
+    textarea {
+      max-height: 171px;
+      height: 5rem;
+      border-radius: 0 10px 10px 10px;
+    }
+
+    button {
+      align-self: center;
+      border: none;
+      background-color: var(--color4);
+      color: var(--color2);
+      padding: 8px;
+      border-radius: 0 10px 10px 10px;
+    }
+  }
 }
