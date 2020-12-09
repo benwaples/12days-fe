@@ -1,5 +1,11 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import {
+  setUsernameAction,
+  setUserRoleAction,
+} from '../../actions/authActions';
+import { verify } from '../../services/authApi';
 import { RootStateType } from '../../types';
 import AddEvent from '../events/AddEvent';
 import EditEvent from '../events/editEvent/EditEvent';
@@ -17,7 +23,18 @@ export default function CalendarPage(): JSX.Element {
     (state: RootStateType) => state.calendar.editEventId
   );
   const username = useSelector((state: RootStateType) => state.auth.username);
-  console.log(username, process.env.SECRET_USERNAME as string);
+
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  useEffect(() => {
+    verify().then((res) => {
+      if (res.status === 500) return history.push('/');
+      dispatch(setUsernameAction(res.username));
+      dispatch(setUserRoleAction(res.userRole));
+      return res;
+    });
+  });
 
   return (
     <>

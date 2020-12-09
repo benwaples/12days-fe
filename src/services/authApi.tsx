@@ -1,4 +1,4 @@
-import { post } from './request';
+import { get, post } from './request';
 
 export const postSignUp = (
   username: string,
@@ -8,3 +8,5 @@ export const postSignUp = (
 
 export const postLogin = (username: string, password: string) =>
   post('/api/v1/auth/login', { username, password, userRole: '' });
+
+export const verify = () => get('/api/v1/auth/verify');
