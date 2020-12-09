@@ -1,11 +1,11 @@
-import { EventType, RequestBodyType } from '../types';
+import { CommentType, EventType, RequestBodyType } from '../types';
 
 const API = 'https://twelvedayschristmas.herokuapp.com';
 
 const request = async (
   path: string | null,
   method: string,
-  body: RequestBodyType | string | EventType
+  body: RequestBodyType | string | EventType | CommentType
 ) => {
   const res = await fetch(`${API}${path}`, {
     method,
@@ -26,7 +26,7 @@ const request = async (
 
 export const post = (
   path: string,
-  body: RequestBodyType | EventType | string
+  body: RequestBodyType | EventType | string | CommentType
 ) => request(path, 'POST', body);
 
 export const get = (path: string | null) => request(path, 'GET', '');

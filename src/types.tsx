@@ -40,3 +40,10 @@ export type RootStateType = {
   auth: AuthReducerState;
   calendar: eventReducerType;
 };
+
+export type CommentType = {
+  eventId: string;
+  username: string;
+  department: string;
+  comment: string;
+};
