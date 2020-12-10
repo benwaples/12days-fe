@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { isMobile } from 'react-device-detect';
 import {
   setUsernameAction,
   setUserRoleAction,
@@ -28,12 +29,14 @@ export default function CalendarPage(): JSX.Element {
   const history = useHistory();
 
   useEffect(() => {
-    verify().then((res) => {
-      if (res.status === 500) return history.push('/');
-      dispatch(setUsernameAction(res.username));
-      dispatch(setUserRoleAction(res.userRole));
-      return res;
-    });
+    if (!isMobile) {
+      verify().then((res) => {
+        if (res.status === 500) return history.push('/');
+        dispatch(setUsernameAction(res.username));
+        dispatch(setUserRoleAction(res.userRole));
+        return res;
+      });
+    }
   });
 
   return (
