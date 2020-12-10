@@ -29,7 +29,7 @@ export default function Header() {
     history.push('/');
   }
   return (
-    <header>
+    <header className={username ? 'loggedIn' : ''}>
       {username ? (
         <button onClick={handleLogOut} id="logout" type="button">
           Log Out
