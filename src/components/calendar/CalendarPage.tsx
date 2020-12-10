@@ -13,7 +13,7 @@ import EventDetails from '../events/EventDetails';
 import Instructions from '../instructions/Instructions';
 import Calendar from './Calendar';
 import './Calendar.scss';
-// import Snow from './Snow';
+import './MobileCalendar.scss';
 
 export default function CalendarPage(): JSX.Element {
   const detailsId = useSelector(
