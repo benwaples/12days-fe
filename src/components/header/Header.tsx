@@ -7,6 +7,7 @@ import {
 } from '../../actions/authActions';
 import { RootStateType } from '../../types';
 import './Header.scss';
+import './MobileHeader.scss';
 
 export default function Header() {
   const username = useSelector((state: RootStateType) => state.auth.username);
