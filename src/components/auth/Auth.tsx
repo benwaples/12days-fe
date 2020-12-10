@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Login from './Login';
 import SignUp from './SignUp';
 import './auth.scss';
+import './MobileAuth.scss';
 
 export default function Auth(): JSX.Element {
   const [isNewUser, setIsNewUser] = useState(false);
