@@ -6,6 +6,7 @@ import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import { useDispatch, useSelector } from 'react-redux';
+import { isMobile } from 'react-device-detect';
 import { getEvents, mungeEvents } from '../../services/eventApi';
 import { MungedEvent, RootStateType } from '../../types';
 import {
@@ -40,7 +41,7 @@ export default function Calendar() {
     const details = eventInfo?.event._def;
     return (
       <div id="event" onClick={(e) => e.preventDefault()}>
-        <div className="container">
+        <div className={`container ${isMobile && 'mobile'}`}>
           <div className="hidden-title">
             <h2>{details.title}</h2>
           </div>
@@ -54,7 +55,7 @@ export default function Calendar() {
           type="button"
           onClick={() => dispatch(setDetailedEventId(details.publicId))}
         >
-          See More
+          {isMobile ? 'Info' : 'See More'}
         </button>
       </div>
     );
@@ -83,7 +84,7 @@ export default function Calendar() {
       <h1 id="title">Event Calendar</h1>
       <FullCalendar
         plugins={[dayGridPlugin, interactionPlugin]}
-        initialView="dayGridMonth"
+        initialView={isMobile ? 'dayGridMonth' : 'dayGridMonth'}
         events={events}
         eventContent={renderEventImage}
       />

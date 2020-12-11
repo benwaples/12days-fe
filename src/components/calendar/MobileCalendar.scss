@@ -1,5 +1,43 @@
 @media only screen and (max-width: 400px) {
   #calendarBox {
-    // background-color: pink;
+    height: 100%;
+    min-height: 380px;
+    grid-row-start: 1;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  #calendarBox > div {
+    height: 100%;
+    > div {
+      height: 75%;
+    }
+  }
+  
+  
+
+  #dashboard {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50% 50%;
+  }
+
+  #left {
+    width: 100%;
+    margin-top: 10px;
+    grid-row-start: 2;
+    align-self: center;
+  }
+
+  #event {
+
+    .mobile:focus .hidden-title{
+      visibility: visible;
+      background-color: #73ba9b;
+    }
+    
+    img{
+      width: 100%;
+    }
   }
 }
