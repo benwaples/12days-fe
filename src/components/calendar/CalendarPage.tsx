@@ -15,6 +15,7 @@ import Instructions from '../instructions/Instructions';
 import Calendar from './Calendar';
 import './Calendar.scss';
 import './MobileCalendar.scss';
+import CommentList from '../comments/CommentList';
 
 export default function CalendarPage(): JSX.Element {
   const detailsId = useSelector(
@@ -49,9 +50,10 @@ export default function CalendarPage(): JSX.Element {
         <div id="calendarBox">
           <Calendar />
         </div>
-        {/* <Snow /> */}
-        {/* if user is emily display this otherwise display nothing */}
-        {username === 'emily' && <AddEvent />}
+        <section>
+          {username === 'emily' && <AddEvent />}
+          {detailsId && <CommentList />}
+        </section>
       </div>
     </>
   );

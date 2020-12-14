@@ -31,6 +31,7 @@ export type MungedEvent = {
 };
 
 export type eventReducerType = {
+  updateComments: string | null | boolean;
   detailedEventId: string | null | boolean;
   editEventId: string | null | boolean;
   updateCalendar: string | null | boolean;
@@ -42,8 +43,9 @@ export type RootStateType = {
 };
 
 export type CommentType = {
-  eventId: string;
-  username: string;
-  department: string;
-  comment: string;
+  id: string | null | boolean;
+  eventId: string | null | boolean;
+  username: string | null | boolean;
+  department: string | null | boolean;
+  comment: string | null | boolean;
 };

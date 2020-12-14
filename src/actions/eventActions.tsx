@@ -19,3 +19,9 @@ export const setUpdateCalendar = (boolean: boolean): AuthActionType => ({
   type: UPDATE_CALENDAR,
   payload: boolean,
 });
+
+export const UPDATE_COMMENTS = 'UPDATE_COMMENTS';
+export const setUpdateComments = (boolean: boolean): AuthActionType => ({
+  type: UPDATE_COMMENTS,
+  payload: boolean,
+});
