@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setDetailedEventId } from '../../actions/eventActions';
-import { deleteEvent } from '../../services/eventApi';
+import { setUpdateComments } from '../../actions/eventActions';
+import { deleteComment } from '../../services/commentApi';
 import { CommentType, RootStateType } from '../../types';
 
 export default function Comment({
@@ -10,16 +10,17 @@ export default function Comment({
   department,
   id,
 }: CommentType) {
+  const [error, setError] = useState(null);
   const currentUsername = useSelector(
     (state: RootStateType) => state.auth.username
   );
   const dispatch = useDispatch();
 
   async function handleDelete() {
-    await deleteEvent(id);
-    dispatch(setDetailedEventId(id as string));
+    await deleteComment(id as string).catch((err) => setError(err));
+    dispatch(setUpdateComments(true));
   }
-
+  if (error) console.log(error);
   return (
     <div key={id as string}>
       <p>

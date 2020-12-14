@@ -17,7 +17,6 @@ const request = async (
       ? JSON.stringify(body)
       : null,
   });
-
   const json = await res.json();
 
   if (!res.ok) return json;

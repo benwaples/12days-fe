@@ -21,13 +21,15 @@ export default function CommentList() {
   );
 
   useEffect(() => {
-    dispatch(setUpdateComments(false));
     setLoading(true);
     setError(null);
     getEventComments(id as string)
       .then((res) => setComments(res))
       .catch((err) => setError(err))
-      .finally(() => setLoading(false));
+      .finally(() => {
+        setLoading(false);
+        dispatch(setUpdateComments(false));
+      });
   }, [id, updateComments]);
 
   // eslint-disable-next-line react/jsx-props-no-spreading
