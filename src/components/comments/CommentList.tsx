@@ -6,6 +6,7 @@ import { getEventComments } from '../../services/commentApi';
 import { RootStateType } from '../../types';
 import AddComment from './AddComment';
 import Comment from './Comment';
+import './CommentList.scss';
 
 export default function CommentList() {
   const [comments, setComments] = useState([]);
@@ -45,7 +46,7 @@ export default function CommentList() {
       </>
     );
   return (
-    <div>
+    <div id="comment-list">
       {eventComments}
       <AddComment />
     </div>

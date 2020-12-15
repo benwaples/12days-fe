@@ -22,9 +22,9 @@ export default function Comment({
   }
   if (error) console.log(error);
   return (
-    <div key={id as string}>
+    <div className="comment" key={id as string}>
       <p>
-        {username} from {department}: {comment}
+        {username} from {department}: <strong>{comment}</strong>
       </p>
       {username === currentUsername && (
         <button onClick={handleDelete} type="button">
