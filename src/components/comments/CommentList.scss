@@ -5,8 +5,10 @@
   flex-direction: column;
   justify-content: space-evenly;
   text-align: center;
+  background-color: var(--color3);
 
   #scroll {
+    background-color: white;
     height: 150px;
     overflow: scroll;
   }
