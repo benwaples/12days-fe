@@ -36,9 +36,14 @@ export default function CommentList() {
   const eventComments = comments.map((comment) => <Comment {...comment} />);
 
   if (loading) return <h1>Loading...</h1>;
-  if (!comments.length) return <AddComment />;
-  console.log(error);
-  if (error) return <h1>failed to fetch comments</h1>;
+
+  if (error)
+    return (
+      <>
+        <h1>No comments for this event yet</h1>
+        <AddComment />
+      </>
+    );
   return (
     <div>
       {eventComments}
