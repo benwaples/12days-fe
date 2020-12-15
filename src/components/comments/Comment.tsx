@@ -28,7 +28,7 @@ export default function Comment({
           {username} from {department}: <strong>{comment}</strong>
         </p>
 
-        {username === currentUsername && (
+        {(username === currentUsername || currentUsername === 'emily') && (
           <button onClick={handleDelete} type="button">
             X
           </button>
