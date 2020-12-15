@@ -23,14 +23,17 @@ export default function Comment({
   if (error) console.log(error);
   return (
     <div className="comment" key={id as string}>
-      <p>
-        {username} from {department}: <strong>{comment}</strong>
-      </p>
-      {username === currentUsername && (
-        <button onClick={handleDelete} type="button">
-          X
-        </button>
-      )}
+      <div className={currentUsername === username ? 'me' : 'them'}>
+        <p>
+          {username} from {department}: <strong>{comment}</strong>
+        </p>
+
+        {username === currentUsername && (
+          <button onClick={handleDelete} type="button">
+            X
+          </button>
+        )}
+      </div>
     </div>
   );
 }

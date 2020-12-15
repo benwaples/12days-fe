@@ -47,7 +47,8 @@ export default function CommentList() {
     );
   return (
     <div id="comment-list">
-      {eventComments}
+      <h3>Comments</h3>
+      <div id="scroll">{eventComments}</div>
       <AddComment />
     </div>
   );

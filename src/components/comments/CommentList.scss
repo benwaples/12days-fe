@@ -1,8 +1,38 @@
 #comment-list {
   border: 1px solid black;
   padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+  #scroll {
+    height: 150px;
+    overflow: scroll;
+  }
 
   .comment{
-    background-color: pink;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    p {
+      padding: 5px;
+      width: fit-content;
+    }
+  }
+  .me{
+    align-self: flex-end;
+    p {
+      background-color: #5fc9f8;
+      text-align: end;
+    }
+
+  }
+  .them {
+    align-self: flex-start;
+    
+    p{
+      background-color: lightgrey;
+    }
   }
 }
