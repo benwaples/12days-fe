@@ -5,26 +5,53 @@
   flex-direction: column;
   justify-content: space-evenly;
   text-align: center;
+
   #scroll {
     height: 150px;
     overflow: scroll;
+  }
+
+  form {
+    align-self: flex-start;
+    input {
+    font-family: monospace;
+
+    }
+    button {
+      font-family: monospace;
+      margin-left: 10px;
+      background-color: var(--color4);
+      color: var(--color2);
+      border: none;
+      border-radius: 0 10px 10px 0;
+    }
   }
 
   .comment{
     display: flex;
     justify-content: center;
     flex-direction: column;
-
     p {
       padding: 5px;
       width: fit-content;
     }
+
   }
+
   .me{
     align-self: flex-end;
+    margin: 10px 0 0 0;
     p {
       background-color: #5fc9f8;
-      text-align: end;
+      border: none;
+      border-radius: 10px 10px 0 10px;
+      margin: 0 0 0 0;
+    }
+
+    button {
+      background-color: var(--color1);
+      border: none;
+      float: right;
     }
 
   }
@@ -32,6 +59,8 @@
     align-self: flex-start;
     
     p{
+      border: none;
+      border-radius: 10px 10px 10px 0;
       background-color: lightgrey;
     }
   }

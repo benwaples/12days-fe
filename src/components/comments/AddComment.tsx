@@ -30,6 +30,7 @@ export default function AddComment() {
         value={comment}
         placeholder="make a comment"
       />
+      <button type="submit">Comment</button>
     </form>
   );
 }
